@@ -1,0 +1,34 @@
+version: 2
+
+models:
+  - name: rautatieliikenne_api
+    description: "Table contains raw data about running trains from specific dates."
+    columns:
+    - name: train_date_operator
+      description: "Derived unique key for a train. Created by concatenating trainNumber, departureDate, and operatorUICCode."
+    - name: trainNumber
+      description: "Train number."
+    - name: departureDate
+      description: "Date of the train's first departure, in Finnish local time."
+    - name: operatorUICCode
+      description: "UIC code identifying the train operator."
+    - name: operatorShortCode
+      description: "Short identifier for the train operator."
+    - name: trainType
+      description: "Type of the train, such as IC, P, or S."
+    - name: trainCategory
+      description: "Traffic category of the train, e.g. commuter, long-distance."
+    - name: commuterLineID
+      description: "Commuter line identifier (e.g. Z, K, N)."
+    - name: runningCurrently
+      description: "Boolean flag indicating whether the train is currently running."
+    - name: cancelled
+      description: "Boolean flag indicating whether the train has been cancelled within 10 days before departure."
+    - name: version
+      description: "Version number representing the most recent update to the train's data."
+    - name: timetableType
+      description: "Indicates whether the timetable is REGULAR or ADHOC (urgent, single-day timetable)."
+    - name: timetableAcceptanceDate
+      description: "Timestamp of timetable approval."
+    - name: timeTableRows
+      description: "Raw JSON structure describing the train's stops, arrivals, and departures at traffic locations."
