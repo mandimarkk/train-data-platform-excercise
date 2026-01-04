@@ -1,1 +1,9 @@
+# Python cache
 __pycache__/
+
+# Omat muistiinpanot
+muistiinpanot.md
+
+# Raakadata
+data/lake/staging/**/*
+data/lake/staging_data/**/*
