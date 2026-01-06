@@ -46,3 +46,36 @@ models:
       description: "Actual datetime of arrival or departure at this station, if available."
     - name: causes
       description: "Array of JSON objects representing delay or advancement causes for this stop event."
+  - name: station_stops
+    description: "Table represents each stop or passing of a train at a station, combining arrival and departure events into a single row."
+    columns:
+    - name: sk_station_stop
+      description: "Surrogate key for each station stop, generated from train number, departure date, operator, station, and scheduled arrival time."
+    - name: train_number
+      description: "Train number."
+    - name: departure_date
+      description: "Date of the train's departure from its first station."
+    - name: operator_uic_code
+      description: "Numeric UIC code identifying the train operator."
+    - name: operator_shortcode
+      description: "Human-readable short code of the train operator."
+    - name: train_type
+      description: "Type of train."
+    - name: train_category
+      description: "Category of train service, like commuter, long-distance, or freight."
+    - name: station_uic_code
+      description: "Numeric UIC code of the station where the stop occurs."
+    - name: arrival_scheduled_time
+      description: "Scheduled datetime of train's arrival at this station."
+    - name: arrival_actual_time
+      description: "Actual datetime of train's arrival at this station, if available."
+    - name: arrival_delay_min
+      description: "Difference in minutes between scheduled and actual arrival time, if available."
+    - name: departure_scheduled_time
+      description: "Scheduled datetime of train's departure from this station."
+    - name: departure_actual_time
+      description: "Actual datetime of train's departure from this station, if available."
+    - name: departure_delay_min
+      description: "Difference in minutes between scheduled and actual departure time, if available."
+    - name: dwell_time_minutes
+      description: "Time in minutes the train spent at this station, calculated as difference between actual departure and arrival times."

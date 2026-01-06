@@ -42,8 +42,7 @@ models:
       +schema: bronze
       +tags: ['bronze']
     silver:
-      trains:
-        +materialized: table
+      +materialized: table
       +schema: silver
       +tags: ['silver']
       
