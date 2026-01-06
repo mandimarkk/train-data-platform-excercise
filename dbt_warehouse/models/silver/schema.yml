@@ -1,0 +1,48 @@
+version: 2
+
+models:
+  - name: trains_timetable
+    description: "This helper table contains essential information about trains and timetable rows for each train."
+    columns:
+    - name: sk_train_timetable
+      description: "Surrogate key for each train stop event, generated from train ID, station, event type, and scheduled time."
+    - name: train_number
+      description: "Train number identifier."
+    - name: departure_date
+      description: "Date of the train's departure from its first station."
+    - name: operator_uic_code
+      description: "Numeric UIC code identifying the train operator."
+    - name: operator_shortcode
+      description: "Human-readable short code of the train operator."
+    - name: train_type
+      description: "Type of train."
+    - name: train_category
+      description: "Category of train service, like commuter or long-distance."
+    - name: commuter_line_id
+      description: "Identifier for the commuter line, if applicable."
+    - name: cancelled
+      description: "Indicates whether this train stop was cancelled."
+    - name: timetable_type
+      description: "Type of timetable: REGULAR (scheduled) or ADHOC (special/one-off)."
+    - name: timetable_acceptance
+      description: "Datetime when the timetable was accepted."
+    - name: station_shortcode
+      description: "Short code of the station where the stop occurs."
+    - name: countrycode
+      description: "Country code of the station (FI, RU)."
+    - name: event_type
+      description: "Type of stop event: ARRIVAL or DEPARTURE."
+    - name: track_id
+      description: "Identifier of the commercial track used for this stop, if available."
+    - name: station_uic_code
+      description: "Numeric UIC code of the station where the stop occurs."
+    - name: difference_in_minutes
+      description: "Difference in minutes between scheduled and actual time, if available."
+    - name: train_stopping
+      description: "Boolean flag indicating whether the train actually stops at this station (false if passing through)."
+    - name: scheduled_time
+      description: "Scheduled datetime of arrival or departure at this station."
+    - name: actual_time
+      description: "Actual datetime of arrival or departure at this station, if available."
+    - name: causes
+      description: "Array of JSON objects representing delay or advancement causes for this stop event."
