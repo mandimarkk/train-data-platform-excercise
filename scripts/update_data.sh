@@ -2,7 +2,7 @@
 
 set -e
 
-# Check that the first argument exists. If not, print usage:
+# Check that the arguments exist. If not, print usage:
 if [ $# -lt 2 ]; then
     echo "Usage: $0 <start_date> <end_date>"
     echo "Example: $0 2026-01-01 2026-01-05"

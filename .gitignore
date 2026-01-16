@@ -7,3 +7,6 @@ muistiinpanot.md
 # Raakadata
 data/lake/staging/**/*
 data/lake/staging_data/**/*
+
+# Warehouse
+*.duckdb

@@ -1,7 +1,7 @@
 [project]
-name = "data-alusta"
+name = "ingestor"
 version = "0.1.0"
-description = "data-alusta jipii"
+description = "Junadata-alusta"
 readme = "README.md"
 authors = [
     { name = "Mandi Markkanen", email = "mandimarkkanen@kamk.fi" }
