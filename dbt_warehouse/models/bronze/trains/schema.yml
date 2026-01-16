@@ -32,3 +32,14 @@ models:
       description: "Timestamp of timetable approval."
     - name: timeTableRows
       description: "Raw JSON structure describing the train's stops, arrivals, and departures at traffic locations."
+  - name: station_names
+    description: "Table contains all train stations with names, shortcodes, and UIC codes."
+    columns:
+    - name: station_uic_code
+      description: "Unique numeric UIC code identifying the station."
+    - name: station_name
+      description: "Commercial/official name of the station."
+    - name: station_shortcode
+      description: "Short code of the station, e.g., 'HEL' for Helsinki."
+    - name: countrycode
+      description: "Country code of the station (e.g., FI, RU)."

@@ -1,0 +1,18 @@
+version: 2
+
+models:
+  - name: station_usage
+    description: "Aggregated train stop information for each station and time bucket, including stop counts, average dwell time, and weekday."
+    columns:
+      - name: station_uic_code
+        description: "Numeric UIC code identifying the station."
+      - name: station_name
+        description: "Actual name of the station."
+      - name: bucket_timestamp
+        description: "Timestamp rounded down to the 10-minute interval representing the time bucket of the stop."
+      - name: stop_count
+        description: "Number of train stops in this time bucket at the given station."
+      - name: avg_dwell_minutes
+        description: "Average time in minutes that trains stayed at this station during this time bucket."
+      - name: weekday
+        description: "ISO weekday number (1=Monday, 7=Sunday) of the first stop in the bucket; used for weekly pattern analysis."

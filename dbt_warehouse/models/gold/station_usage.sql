@@ -1,19 +1,24 @@
 WITH stops_bucketed AS (
     SELECT
-        station_uic_code,
-        timestamp 'epoch' + 600 * floor(extract(epoch from arrival_actual_time) / 600) * interval '1 second'
-            as bucket_timestamp,
-        dwell_time_minutes,
-        arrival_actual_time
-    FROM {{ ref('station_stops') }}
-    WHERE arrival_actual_time is not null
+        ss.station_uic_code,
+        sn.station_name,
+        timestamp 'epoch' + 600 * floor(extract(epoch from ss.arrival_actual_time) / 600) * interval '1 second'
+            AS bucket_timestamp,
+        ss.dwell_time_minutes,
+        ss.arrival_actual_time
+    FROM {{ ref('station_stops') }} AS ss
+    LEFT JOIN {{ ref('station_names') }} AS sn
+        ON ss.station_uic_code = sn.station_uic_code
+    WHERE ss.arrival_actual_time IS NOT NULL
 )
+
 SELECT
     station_uic_code,
+    station_name,
     bucket_timestamp,
-    count(*) as stop_count,
-    avg(dwell_time_minutes) as avg_dwell_minutes,
-    extract(isodow from min(arrival_actual_time)) as weekday,  -- min() käytetään, koska sama bucket
+    COUNT(*) AS stop_count,
+    AVG(dwell_time_minutes) AS avg_dwell_minutes,
+    EXTRACT(isodow FROM MIN(arrival_actual_time)) AS weekday
 FROM stops_bucketed
-GROUP BY station_uic_code, bucket_timestamp
+GROUP BY station_uic_code, station_name, bucket_timestamp
 ORDER BY station_uic_code, bucket_timestamp
