@@ -7,6 +7,8 @@ Tähänastiset visualisoinnit kertovat
 - käyttäjän valitseman aseman junaliikennemäärät valittuna päivämääränä
 - valitun aseman junaliikennemäärän jakautuminen eri viikonpäiville
 
+Projektissa käytetty Docker- ja Docker Compose -konfiguraatio pohjautuu kurssin opettajan tarjoamaan malliin, jota on hyödynnetty erityisesti Evidence BI:n pystytykseen. Varsinainen datan ingest, tietokantamallinnus ja analyysi on toteutettu itsenäisesti.
+
 ## Arkkitehtuuri
 
 ![Kuva data-alustan arkkitehtuurista](data-alusta_arkkitehtuuri.png)
